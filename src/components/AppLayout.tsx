@@ -187,17 +187,15 @@ const AppLayout: React.FC = () => {
       <section className="py-12 bg-somma-cream text-center">
         <div className="mx-auto max-w-4xl px-6">
           <div className="text-sm md:text-base leading-relaxed text-somma-ink/80">
-            <p className="mb-2">
-              Tue–Wed: 5–9 | Thu–Fri: 12–3 / 5–10
-            </p>
             <p>
-              Sat: 12–3 / 5–11 | Sun: 12–3 / 5–9 | <span className="text-red-600 font-semibold">Mon: Closed</span>
+              Mon: <span className="font-semibold">5–9</span> | Tue–Wed: <span className="font-semibold">5–9</span> | 
+              Thu–Fri: <span className="font-semibold">12–3 / 5–10</span> | 
+              Sat: <span className="font-semibold">12–3 / 5–11</span> | 
+              Sun: <span className="font-semibold">12–3 / 5–9</span>
             </p>
           </div>
         </div>
       </section>
-
-
 
       {/* FOOTER */}
       <footer className="py-10 text-sm bg-cover bg-center transition-all duration-300" style={{
