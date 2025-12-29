@@ -12,7 +12,7 @@ export function GlassViewMenu({ size = "lg" }: GlassViewMenuProps) {
   };
 
   const handleViewMenu = () => {
-    // Open the PDF in a new tab
+    // Open the PDF in a new tab - file should be in public folder
     window.open('/Somma Modern Greek Menu.pdf', '_blank');
   };
 
