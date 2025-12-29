@@ -1,20 +1,15 @@
 import React, { useState } from 'react';
 import { StyleTokens } from './somma/StyleTokens';
 import { GlassBookNow } from './somma/GlassBookNow';
+import { GlassViewMenu } from './somma/GlassViewMenu';
 import { BookingModal } from './somma/BookingModal';
-
 import { ChefSection } from './somma/ChefSection';
-
 import { LocationHours } from './somma/LocationHours';
 import { MobileMenu } from './somma/MobileMenu';
-
 
 const AppLayout: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [bookingModalOpen, setBookingModalOpen] = useState(false);
-
-
-
 
   const scrollTo = (id: string) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
@@ -28,35 +23,24 @@ const AppLayout: React.FC = () => {
     }}>
       <StyleTokens />
       <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} scrollTo={scrollTo} onBookNowClick={() => setBookingModalOpen(true)} />
-
       <BookingModal isOpen={bookingModalOpen} onClose={() => setBookingModalOpen(false)} />
-
-
       
       
       {/* NAV */}
-
       <header className="fixed inset-x-0 top-0 z-40 backdrop-blur-md bg-somma-cream/70 border-b border-somma-ink/10 transition-all duration-300">
         <div className="mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
           <button onClick={() => scrollTo('top')} className="h-8 md:h-10 transition-all duration-300 hover:scale-110">
             <img src="https://d64gsuwffb70l.cloudfront.net/685afce20bfda24fc0f1d36c_1762723602800_889a7611.png" alt="SOMMA" className="h-full w-auto" />
           </button>
-
-
           <nav className="hidden md:flex items-center gap-8 font-sans text-sm" style={{ color: '#eae8e2' }}>
             <button onClick={() => scrollTo('about')} className="transition-all duration-300 hover:opacity-70 hover:scale-110">About</button>
             <button onClick={() => scrollTo('contact')} className="transition-all duration-300 hover:opacity-70 hover:scale-110">Contact</button>
             <a href="https://somma.vercel.app/" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-70 hover:scale-110">Join our team</a>
             <GlassBookNow onClick={() => setBookingModalOpen(true)} size="sm"/>
-
-
           </nav>
-
           <button onClick={() => setMobileMenuOpen(true)} className="md:hidden text-2xl transition-all duration-300 hover:scale-110 hover:rotate-90">☰</button>
         </div>
-
       </header>
-
 
       {/* HERO */}
       <section id="top" className="relative isolate flex flex-col justify-between md:flex-col md:items-center md:justify-center min-h-[60vh] md:min-h-[88vh] overflow-hidden">
@@ -71,7 +55,6 @@ const AppLayout: React.FC = () => {
           <div className="max-w-2xl md:mx-auto">
             <p className="uppercase tracking-[0.25em] text-[10px] text-white/90 animate-fade-in" style={{ animationDelay: '0.2s' }}>SOMMA MODERN GREEK</p>
             <h1 className="mt-1 font-display text-3xl md:text-6xl lg:text-7xl leading-tight text-white animate-fade-in" style={{ animationDelay: '0.4s' }}>
-
               Come dine with us on The Parade!
             </h1>
             <p className="mt-2 max-w-xl md:mx-auto font-sans text-xs md:text-sm text-white/90 leading-relaxed animate-fade-in" style={{ animationDelay: '0.6s' }}>
@@ -84,7 +67,7 @@ const AppLayout: React.FC = () => {
         <div className="w-full px-6 pb-16 md:hidden animate-fade-in" style={{ animationDelay: '0.8s' }}>
           <div className="flex flex-wrap items-center gap-4">
             <GlassBookNow onClick={() => setBookingModalOpen(true)} />
-
+            <GlassViewMenu />
             <button onClick={() => scrollTo('about')} className="underline underline-offset-4 text-white hover:opacity-70 font-sans transition-all duration-300 hover:translate-x-1">Learn More</button>
           </div>
         </div>
@@ -94,19 +77,12 @@ const AppLayout: React.FC = () => {
           <div className="max-w-2xl md:mx-auto">
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
               <GlassBookNow onClick={() => setBookingModalOpen(true)} />
-
+              <GlassViewMenu />
               <button onClick={() => scrollTo('about')} className="underline underline-offset-4 text-white hover:opacity-70 font-sans transition-all duration-300 hover:translate-x-1">Learn More</button>
             </div>
           </div>
         </div>
-
-
       </section>
-
-
-
-
-
 
       <ChefSection />
 
@@ -115,10 +91,7 @@ const AppLayout: React.FC = () => {
         backgroundImage: "url('https://d64gsuwffb70l.cloudfront.net/685afce20bfda24fc0f1d36c_1762723362321_8dd67669.png')",
         backgroundSize: 'cover',
       }} />
-
-
       
-
       <section id="about" className="relative py-32 md:py-40 overflow-hidden">
         {/* Large background image */}
         <div className="absolute inset-0 -z-10">
@@ -146,8 +119,6 @@ const AppLayout: React.FC = () => {
               </p>
               <div className="pt-4 flex flex-wrap items-center gap-4">
                 <GlassBookNow onClick={() => setBookingModalOpen(true)} size="lg" />
-
-
                 <button 
                   onClick={() => scrollTo('contact')}
                   className="inline-flex items-center justify-center rounded-2xl border-2 border-[var(--somma)] bg-transparent hover:bg-[var(--somma)] hover:text-white text-[var(--somma)] transition-all duration-300 shadow-sm hover:shadow-2xl hover:scale-105 text-base px-5 py-3 font-sans"
@@ -156,8 +127,6 @@ const AppLayout: React.FC = () => {
                   <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">→</span>
                 </button>
               </div>
-
-
             </div>
 
             {/* Large featured image */}
@@ -175,13 +144,7 @@ const AppLayout: React.FC = () => {
         </div>
       </section>
 
-
-
-
-
-
       <LocationHours />
-
 
       {/* TRADING HOURS - Above Footer */}
       <section className="py-12 bg-somma-cream text-center">
@@ -216,54 +179,21 @@ const AppLayout: React.FC = () => {
             {/* Center - Logo and Copyright */}
             <div className="flex flex-col items-center gap-6 text-center md:flex-1">
               <img 
-                src="https://d64gsuwffb70l.cloudfront.net/685afce20bfda24fc0f1d36c_1762721407780_8e3010e3.png" 
-                alt="SOMMA Logo" 
-                className="h-16 md:h-20 w-auto opacity-80 transition-all duration-300 hover:opacity-100 hover:scale-110"
+                src="https://d64gsuwffb70l.cloudfront.net/685afce20bfda24fc0f1d36c_1762723602800_889a7611.png" 
+                alt="SOMMA" 
+                className="h-12 w-auto transition-all duration-300 hover:scale-110"
               />
-
-              <p>
-                © 2025 SOMMA Modern Greek | Powered by <a href="https://nexadigital.com.au/" target="_blank" rel="noopener noreferrer" className="transition-all duration-300 hover:opacity-70 hover:underline">Nexa Digital</a>
-              </p>
+              <p className="text-xs">© 2024 SOMMA Modern Greek. All rights reserved.</p>
             </div>
 
-            
-            {/* Right - Social Icons */}
-            <div className="flex items-center gap-4 md:flex-shrink-0">
-              <a 
-                href="https://www.instagram.com/somma.adl/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="transition-all duration-300 hover:opacity-70 hover:scale-110"
-                aria-label="Instagram"
-              >
-                <svg className="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-              </a>
-
-              <a 
-                href="https://facebook.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="transition-all duration-300 hover:opacity-70 hover:scale-110"
-                aria-label="Facebook"
-              >
-                <svg className="w-6 h-6 md:w-7 md:h-7" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                </svg>
-              </a>
+            {/* Right - Social Links */}
+            <div className="flex gap-6 md:flex-shrink-0">
+              <a href="#" className="transition-all duration-300 hover:opacity-70 hover:scale-125">Instagram</a>
+              <a href="#" className="transition-all duration-300 hover:opacity-70 hover:scale-125">Facebook</a>
             </div>
           </div>
         </div>
       </footer>
-
-
-
-
-
-
-
-
     </div>
   );
 };
